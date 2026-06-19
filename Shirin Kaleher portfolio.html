@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shirin Kaleher</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --cream:#F5F0E8;
+  --cream2:#EDE8DE;
+  --cream3:#E4DDD0;
+  --cream4:#D8D0C4;
+  --ink:#1A1916;
+  --ink2:#5C5850;
+  --ink3:#9A9488;
+  --rust:#C4613A;
+  --rust2:#D4754E;
+  --sage:#7A9B82;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --hand:'Caveat',cursive;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 56px;
+  background:rgba(245,240,232,0.95);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(0,0,0,0.055);
+}
+.brand{font-family:var(--serif);font-size:17px;display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);}
+.brand-dot{width:8px;height:8px;border-radius:50%;background:var(--rust);}
+.brand em{font-style:italic;color:var(--ink2);font-weight:400;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-size:13px;color:var(--ink2);text-decoration:none;letter-spacing:.02em;transition:color .18s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-cta{
+  font-size:13px;padding:9px 22px;
+  border:1.5px solid var(--ink);border-radius:5px;
+  background:var(--ink);color:var(--cream);
+  text-decoration:none;display:flex;align-items:center;gap:6px;
+  transition:all .2s;letter-spacing:.03em;font-weight:500;
+}
+.nav-cta:hover{background:transparent;color:var(--ink);}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1160px;margin:0 auto;padding:0 56px;}
+
+/* ── EYEBROW ── */
+.eyebrow{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;letter-spacing:.16em;color:var(--ink3);
+  border-top:1px solid var(--cream3);padding-top:18px;margin-bottom:68px;
+  text-transform:uppercase;font-family:var(--sans);
+}
+.eyebrow em{
+  font-family:var(--hand);font-size:20px;text-transform:none;
+  letter-spacing:0;color:var(--rust);font-style:normal;
+}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  max-width:1160px;margin:0 auto;padding:140px 56px 80px;
+}
+.hero-status{
+  display:flex;align-items:center;gap:9px;
+  font-size:13px;color:var(--ink2);margin-bottom:56px;letter-spacing:.01em;
+}
+.pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--sage);animation:pulse 2.2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.25;}}
+
+.hero-top{display:grid;grid-template-columns:1fr 260px;gap:56px;align-items:start;}
+.hero-name{
+  font-family:var(--serif);
+  font-size:clamp(72px,10.5vw,118px);
+  line-height:.9;font-weight:400;letter-spacing:-.025em;
+}
+.hero-name span{display:block;}
+.hero-name .italic{font-style:italic;}
+.hero-cursor{
+  display:inline-block;width:3px;height:.82em;
+  background:var(--rust);vertical-align:middle;margin-left:5px;
+  animation:blink 1.1s step-end infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+.hero-aside{padding-top:24px;}
+.hero-aside .hi{font-family:var(--hand);font-size:24px;color:var(--rust);margin-bottom:8px;line-height:1;}
+.hero-aside .arr{font-size:22px;color:var(--rust);display:block;margin-bottom:14px;}
+.hero-aside p{font-size:14px;color:var(--ink2);line-height:1.68;}
+
+.hero-bio{margin-top:56px;max-width:720px;}
+.hero-bio .qi{
+  font-family:var(--serif);font-size:36px;color:var(--rust);
+  line-height:1;display:inline-block;vertical-align:top;
+  margin-right:8px;margin-top:6px;
+}
+.hero-bio p{
+  font-family:var(--serif);
+  font-size:clamp(22px,3vw,34px);
+  line-height:1.32;display:inline;color:var(--ink);font-weight:400;
+}
+
+.hero-cards{display:flex;gap:22px;margin-top:52px;align-items:flex-start;}
+.info-card{
+  border:1px solid var(--cream3);border-radius:5px;
+  padding:22px 24px;background:var(--cream2);
+}
+.info-card.grow{flex:1;}
+.info-row{display:flex;gap:32px;flex-wrap:wrap;margin-bottom:14px;}
+.info-item .lbl{font-size:11px;color:var(--ink3);margin-bottom:3px;}
+.info-item strong{font-size:13.5px;font-weight:500;display:block;}
+.info-item span{font-size:11.5px;color:var(--ink3);}
+.info-card hr{border:none;border-top:1px solid var(--cream3);margin:14px 0;}
+.ilink{font-size:12.5px;color:var(--ink2);display:flex;align-items:center;gap:8px;margin-bottom:7px;}
+.ilink a{color:var(--ink2);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s;}
+.ilink a:hover{border-bottom-color:var(--rust);}
+
+.scroll-hint{margin-top:64px;font-size:13px;color:var(--ink3);display:flex;align-items:center;gap:8px;font-family:var(--sans);}
+
+/* ── TICKER ── */
+.ticker-outer{overflow:hidden;padding:30px 0;border-top:1px solid var(--cream3);border-bottom:1px solid var(--cream3);}
+.ticker-track{display:flex;white-space:nowrap;animation:tick 26s linear infinite;}
+.ticker-track:hover{animation-play-state:paused;}
+.tk{font-family:var(--serif);font-size:clamp(18px,2.4vw,24px);font-style:italic;padding:0 30px;color:var(--ink2);display:flex;align-items:center;gap:10px;}
+.tk .sp{color:var(--rust);font-style:normal;font-size:14px;}
+@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ── ABOUT ── */
+#about{padding:108px 0;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.about-hl{font-family:var(--serif);font-size:clamp(34px,4.5vw,54px);line-height:1.08;margin-bottom:22px;}
+.about-hl em{font-style:italic;color:var(--rust);}
+.about-lead{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:28px;}
+
+.belief{border:1px solid var(--cream3);border-radius:8px;padding:28px;background:white;margin-bottom:18px;transition:box-shadow .2s;}
+.belief:hover{box-shadow:0 4px 20px rgba(0,0,0,.07);}
+.belief-n{font-size:13px;color:var(--rust);font-family:var(--mono);margin-bottom:12px;letter-spacing:.04em;}
+.belief h3{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.25;margin-bottom:11px;}
+.belief p{font-size:13.5px;color:var(--ink2);line-height:1.68;}
+
+/* interest pills */
+.interests{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;}
+.interest-pill{
+  font-family:var(--serif);font-style:italic;font-size:15px;
+  padding:6px 18px;border-radius:50px;border:1.5px solid var(--cream3);
+  color:var(--ink2);background:white;display:flex;align-items:center;gap:6px;
+  transition:border-color .2s,color .2s;
+}
+.interest-pill:hover{border-color:var(--rust);color:var(--rust);}
+.interest-pill .spark{font-style:normal;font-family:var(--sans);font-size:12px;color:var(--rust);}
+
+/* ── SKILLS ── */
+#skills{padding:108px 0;background:var(--cream);}
+.sk-hl{font-family:var(--serif);font-size:clamp(30px,5vw,54px);line-height:1.08;margin-bottom:10px;}
+.sk-hl em{font-style:italic;}
+.sk-sub{font-size:13px;color:var(--ink3);margin-bottom:48px;font-family:var(--sans);}
+.sk-sub em{font-family:var(--hand);font-size:17px;color:var(--rust);font-style:normal;}
+.sk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;}
+.sk-card{
+  border-radius:8px;padding:24px 20px;cursor:default;
+  transition:transform .2s,box-shadow .2s;
+}
+.sk-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.1);}
+.sk-card .lv{font-size:10px;letter-spacing:.12em;margin-bottom:9px;opacity:.55;text-transform:uppercase;font-family:var(--sans);}
+.sk-card .nm{font-family:var(--serif);font-size:clamp(20px,2.2vw,29px);font-weight:500;line-height:1.1;}
+.sk-card .nm em{font-style:italic;font-size:15px;}
+.sk-card .bar{font-family:var(--mono);font-size:10px;margin-top:10px;opacity:0;transition:opacity .22s;line-height:1;}
+.sk-card:hover .bar{opacity:1;}
+.sk-dk{background:var(--ink);color:white;}        .sk-dk .lv{color:rgba(255,255,255,.4);} .sk-dk .bar{color:rgba(255,255,255,.4);}
+.sk-rs{background:#C4613A;color:white;}            .sk-rs .lv{color:rgba(255,255,255,.4);} .sk-rs .bar{color:rgba(255,255,255,.4);}
+.sk-sg{background:#7A9B82;color:white;}            .sk-sg .lv{color:rgba(255,255,255,.4);} .sk-sg .bar{color:rgba(255,255,255,.4);}
+.sk-lt{background:white;color:var(--ink);border:1px solid var(--cream3);}  .sk-lt .lv{color:var(--ink3);} .sk-lt .bar{color:rgba(0,0,0,.3);}
+.sk-wm{background:var(--cream3);color:var(--ink);}  .sk-wm .lv{color:var(--ink3);} .sk-wm .bar{color:rgba(0,0,0,.25);}
+
+/* ── PROJECTS ── */
+#projects{padding:108px 0;}
+.proj-hl{
+  font-family:var(--serif);
+  font-size:clamp(36px,5.5vw,62px);
+  line-height:1.04;margin-bottom:52px;
+}
+.proj-hl em{font-style:italic;color:var(--rust);}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+
+.proj-card{
+  background:white;border:1px solid var(--cream3);border-radius:12px;
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:box-shadow .25s,transform .25s;
+}
+.proj-card:hover{box-shadow:0 10px 40px rgba(0,0,0,.1);transform:translateY(-3px);}
+
+.proj-head{
+  background:var(--cream2);padding:52px 24px 24px;
+  border-bottom:1px solid var(--cream3);min-height:230px;
+  position:relative;display:flex;align-items:flex-end;
+}
+.proj-badges{position:absolute;top:18px;left:18px;display:flex;gap:7px;align-items:center;}
+.pbadge{font-size:10px;font-family:var(--mono);padding:4px 12px;border-radius:20px;background:white;border:1px solid var(--cream3);color:var(--ink2);}
+.pyear{font-size:10px;font-family:var(--mono);padding:4px 12px;border-radius:20px;background:var(--ink);color:white;}
+
+/* Chart/diagram visuals replacing ASCII — clean minimal SVG style */
+.proj-visual{width:100%;font-family:var(--mono);font-size:9px;}
+
+.proj-body{padding:30px 26px;flex:1;display:flex;flex-direction:column;gap:15px;}
+.proj-title{font-family:var(--serif);font-size:clamp(22px,2.5vw,30px);font-weight:400;line-height:1.12;}
+.proj-desc{font-size:13.5px;color:var(--ink2);line-height:1.74;}
+.proj-bul{list-style:none;}
+.proj-bul li{
+  font-size:13px;color:var(--ink2);line-height:1.68;
+  padding:4px 0 4px 16px;position:relative;
+}
+.proj-bul li::before{content:'·';position:absolute;left:0;color:var(--rust);font-size:20px;line-height:1.1;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:12px;}
+.ptag{font-size:10.5px;font-family:var(--mono);padding:3px 10px;border:1px solid var(--cream3);border-radius:3px;color:var(--ink3);}
+.proj-gh-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  margin-top:12px;padding:9px 16px;border-radius:5px;
+  border:1.5px solid var(--ink);background:var(--ink);color:white;
+  font-size:12.5px;font-family:var(--sans);text-decoration:none;
+  letter-spacing:.02em;font-weight:500;transition:background .2s,color .2s;
+}
+.proj-gh-btn:hover{background:transparent;color:var(--ink);}
+
+/* ── WORK — exact layout from screenshot ── */
+#work{padding:108px 0;}
+.work-layout{display:grid;grid-template-columns:300px 1fr;gap:60px;align-items:start;}
+.work-left{position:sticky;top:112px;}
+.work-left h2{
+  font-family:var(--serif);
+  font-size:clamp(36px,4.8vw,54px);
+  line-height:.98;margin-bottom:22px;font-weight:400;
+}
+.work-left h2 em{font-style:italic;color:var(--rust);}
+.work-left p{font-size:14px;color:var(--ink2);line-height:1.78;}
+.work-cards{display:flex;flex-direction:column;gap:22px;}
+.wcard{
+  border:1px solid var(--cream3);border-radius:8px;padding:34px;background:white;
+  transition:box-shadow .22s;
+}
+.wcard:hover{box-shadow:0 4px 20px rgba(0,0,0,.07);}
+.wcard .period{font-family:var(--mono);font-size:11px;color:var(--rust);letter-spacing:.1em;margin-bottom:12px;text-transform:uppercase;}
+.wcard h3{font-family:var(--serif);font-size:23px;font-weight:400;line-height:1.18;margin-bottom:7px;}
+.wcard h3 em{font-style:italic;color:var(--ink2);}
+.wcard .org{font-size:13px;color:var(--ink3);margin-bottom:20px;}
+.wbul{list-style:none;}
+.wbul li{font-size:13.5px;color:var(--ink2);line-height:1.68;padding:5px 0 5px 18px;position:relative;}
+.wbul li::before{content:'·';position:absolute;left:0;color:var(--rust);font-size:22px;line-height:1.05;}
+
+/* ── CERTS & EDU ── */
+#certs{padding:108px 0;}
+.edu-card{border:1px solid var(--cream3);border-radius:8px;padding:34px;background:white;margin-bottom:22px;}
+.edu-card .period{font-family:var(--mono);font-size:11px;color:var(--rust);margin-bottom:12px;letter-spacing:.1em;text-transform:uppercase;}
+.edu-card h3{font-family:var(--serif);font-size:28px;font-weight:400;line-height:1.18;margin-bottom:7px;}
+.edu-card .sub{font-size:13.5px;color:var(--ink3);margin-bottom:14px;}
+.edu-card p{font-size:13.5px;color:var(--ink2);line-height:1.68;}
+
+.certs-hl{font-family:var(--serif);font-size:30px;font-weight:400;margin-bottom:24px;}
+.certs-hl em{font-style:italic;color:var(--rust);}
+.certs-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+.cert{border:1px solid var(--cream3);border-radius:8px;padding:30px;background:white;transition:box-shadow .22s;}
+.cert:hover{box-shadow:0 4px 20px rgba(0,0,0,.07);}
+.cert-icon{width:42px;height:42px;border-radius:50%;background:var(--cream2);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:18px;}
+.cert-date{font-family:var(--mono);font-size:10.5px;color:var(--rust);letter-spacing:.1em;margin-bottom:9px;text-transform:uppercase;}
+.cert-title{font-family:var(--serif);font-size:19px;font-weight:400;margin-bottom:7px;line-height:1.28;}
+.cert-org{font-size:12.5px;color:var(--ink3);font-style:italic;margin-bottom:12px;line-height:1.5;}
+.cert-desc{font-size:12.5px;color:var(--ink2);line-height:1.65;}
+
+/* ── CONTACT — exact from screenshot: dark bg, huge type, pill btns ── */
+#contact{
+  background:var(--ink);border-radius:14px;
+  margin:0 56px 88px;padding:84px 68px;color:white;
+}
+.contact-ey{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;letter-spacing:.16em;
+  color:rgba(255,255,255,.28);
+  border-top:1px solid rgba(255,255,255,.08);
+  padding-top:18px;margin-bottom:68px;text-transform:uppercase;
+}
+.contact-ey em{font-family:var(--hand);font-size:20px;text-transform:none;letter-spacing:0;color:var(--rust2);font-style:normal;}
+.contact-grid{display:grid;grid-template-columns:1fr 310px;gap:68px;align-items:start;}
+.contact-hl{
+  font-family:var(--serif);
+  font-size:clamp(42px,6.5vw,76px);
+  line-height:.98;margin-bottom:20px;font-weight:400;
+}
+.contact-hl em{font-style:italic;color:var(--rust2);}
+.contact-body{font-size:15.5px;color:rgba(255,255,255,.46);line-height:1.74;margin-bottom:36px;max-width:480px;}
+.cbtns{display:flex;flex-direction:column;gap:11px;max-width:320px;}
+.cbtn{
+  display:flex;align-items:center;gap:11px;
+  padding:14px 22px;border-radius:50px;
+  border:1px solid rgba(255,255,255,.14);
+  color:white;text-decoration:none;font-size:13.5px;
+  background:transparent;transition:background .2s;
+  font-family:var(--sans);letter-spacing:.01em;
+}
+.cbtn:hover{background:rgba(255,255,255,.08);}
+.cbtn svg{width:17px;height:17px;opacity:.5;flex-shrink:0;}
+
+.looking-hl{font-size:11px;letter-spacing:.14em;color:rgba(255,255,255,.28);text-transform:uppercase;margin-bottom:20px;font-family:var(--sans);}
+.looking{list-style:none;}
+.looking li{display:flex;gap:16px;align-items:flex-start;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07);}
+.looking li .n{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.26);min-width:22px;padding-top:5px;}
+.looking li span{font-family:var(--serif);font-size:21px;line-height:1.18;color:white;font-weight:400;}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:32px 56px;font-size:12.5px;color:var(--ink3);}
+footer a{color:var(--ink2);text-decoration:none;border-bottom:1px solid var(--cream3);transition:border-color .2s;}
+footer a:hover{border-bottom-color:var(--rust);}
+
+/* ── FADE IN ── */
+.fi{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
+.fi.vis{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  nav{padding:16px 22px;} .nav-links{display:none;}
+  #hero,.wrap{padding-left:22px;padding-right:22px;}
+  .hero-top{grid-template-columns:1fr;} .hero-aside{display:none;}
+  .about-grid,.work-layout,.proj-grid,.certs-grid,.contact-grid{grid-template-columns:1fr;}
+  .work-left{position:static;}
+  #contact{margin:0 16px 40px;padding:44px 26px;border-radius:10px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="brand" href="#hero">
+    <span class="brand-dot"></span>
+    Shirin <em>Kaleher</em>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:shirin.kaleher@outlook.com" class="nav-cta">Say hi ↗</a>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-status">
+    <span class="pulse-dot"></span>
+    Open for summer '26 internships
+  </div>
+  <div class="hero-top">
+    <div>
+      <h1 class="hero-name">
+        <span>Shirin</span>
+        <span class="italic">Kaleher<span class="hero-cursor"></span></span>
+      </h1>
+    </div>
+    <div class="hero-aside">
+      <div class="hi">hi, i'm shirin</div>
+      <span class="arr">→</span>
+      <p>Crafting software that listens before it speaks.</p>
+    </div>
+  </div>
+
+  <div class="hero-bio">
+    <span class="qi">"</span>
+    <p>I'm a Computer Science undergrad at VIT Bhopal who likes building things at the seams of finance, healthcare and AI — small tools that turn messy real-world chaos into something a little more humane.</p>
+  </div>
+
+  <div class="hero-cards">
+    <div class="info-card grow">
+      <div class="info-row">
+        <div class="info-item">
+          <div class="lbl">📍 Location</div>
+          <strong>Bhopal, India</strong>
+          <span>IST · GMT +5:30</span>
+        </div>
+        <div class="info-item">
+          <div class="lbl">🎓 Degree</div>
+          <strong>B.Tech CSE</strong>
+          <span>VIT Bhopal · '24–28'</span>
+        </div>
+      </div>
+      <hr>
+      <div class="ilink"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="flex-shrink:0;opacity:.6"><path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg> <a href="mailto:shirin.kaleher@outlook.com">shirin.kaleher@outlook.com</a></div>
+      <div class="ilink"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" style="flex-shrink:0;opacity:.6"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> <a href="https://github.com/JK-BB" target="_blank">github.com/JK-BB</a></div>
+      <div class="ilink"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" style="flex-shrink:0;opacity:.6"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> <a href="https://linkedin.com/in/shirin-kaleher-3a6a10349" target="_blank">linkedin.com/in/shirin-kaleher-3a6a10349</a></div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">scroll, gently ↓</div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-outer">
+  <div class="ticker-track">
+    <span class="tk"><span class="sp">✦</span> Healthcare-tech</span>
+    <span class="tk"><span class="sp">✦</span> Yahoo Finance tabs ×40</span>
+    <span class="tk"><span class="sp">✦</span> Monte Carlo simulations</span>
+    <span class="tk"><span class="sp">✦</span> VIT Bhopal · CSE</span>
+    <span class="tk"><span class="sp">✦</span> AIESEC alumna</span>
+    <span class="tk"><span class="sp">✦</span> offline-first believer</span>
+    <span class="tk"><span class="sp">✦</span> notebook hoarder</span>
+    <span class="tk"><span class="sp">✦</span> Healthcare-tech</span>
+    <span class="tk"><span class="sp">✦</span> Yahoo Finance tabs ×40</span>
+    <span class="tk"><span class="sp">✦</span> Monte Carlo simulations</span>
+    <span class="tk"><span class="sp">✦</span> VIT Bhopal · CSE</span>
+    <span class="tk"><span class="sp">✦</span> AIESEC alumna</span>
+    <span class="tk"><span class="sp">✦</span> offline-first believer</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="wrap">
+  <div class="eyebrow"><span>01 / ABOUT</span><em>a quick hello</em></div>
+  <div class="about-grid">
+    <div>
+      <h2 class="about-hl">Three things I <em>strongly</em> believe in.</h2>
+      <p class="about-lead">I'm at the start of my engineering story — but these are the principles that have already shown up in everything I've shipped so far.</p>
+      <div class="interests">
+        <div class="interest-pill"><span class="spark">✦</span> notebook hoarder</div>
+        <div class="interest-pill"><span class="spark">✦</span> Healthcare-tech</div>
+        <div class="interest-pill"><span class="spark">✦</span> Yahoo Finance tabs ×40</div>
+        <div class="interest-pill"><span class="spark">✦</span> offline-first believer</div>
+        <div class="interest-pill"><span class="spark">✦</span> Monte Carlo runs</div>
+      </div>
+    </div>
+    <div>
+      <div class="belief fi">
+        <div class="belief-n">01</div>
+        <h3>Care is a feature.</h3>
+        <p>How a product feels in someone's hand matters as much as what it does. I sweat the small interactions because that's where trust lives.</p>
+      </div>
+      <div class="belief fi">
+        <div class="belief-n">02</div>
+        <h3>Constraints make better engineers.</h3>
+        <p>Low bandwidth, no internet, low devices — the harder the constraint, the more elegant the answer has to be. I love that puzzle.</p>
+      </div>
+      <div class="belief fi">
+        <div class="belief-n">03</div>
+        <h3>Ship, then learn.</h3>
+        <p>A finished imperfect thing beats a perfect unshipped idea. I bias toward action, toward feedback, toward the next iteration.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="wrap">
+  <div class="eyebrow"><span>02 / SKILLS</span><em>hover me ↗</em></div>
+  <h2 class="sk-hl">A <em>blanket</em> of skills I actually use —<br>not a checklist.</h2>
+  <p class="sk-sub">the ones that show up in real projects · <em>no fluff</em></p>
+  <div class="sk-grid">
+    <div class="sk-card sk-dk fi" style="grid-column:span 2;">
+      <div class="lv">CORE LANGUAGE</div>
+      <div class="nm">Python</div>
+      <div class="bar">████████████████░░░░ 82%</div>
+    </div>
+    <div class="sk-card sk-rs fi">
+      <div class="lv">CORE LANGUAGE</div>
+      <div class="nm">Java</div>
+      <div class="bar">███████████████░░░░░ 78%</div>
+    </div>
+    <div class="sk-card sk-sg fi">
+      <div class="lv">FRONTEND</div>
+      <div class="nm">React</div>
+      <div class="bar">████████████░░░░░░░░ 65%</div>
+    </div>
+    <div class="sk-card sk-dk fi">
+      <div class="lv">CORE LANGUAGE</div>
+      <div class="nm">C++</div>
+      <div class="bar">███████████░░░░░░░░░ 58%</div>
+    </div>
+    <div class="sk-card sk-lt fi">
+      <div class="lv">FRONTEND</div>
+      <div class="nm">JavaScript <em>yes</em></div>
+      <div class="bar">████████████░░░░░░░░ 65%</div>
+    </div>
+    <div class="sk-card sk-lt fi">
+      <div class="lv">FRONTEND</div>
+      <div class="nm">HTML <em>yes</em></div>
+      <div class="bar">█████████████░░░░░░░ 70%</div>
+    </div>
+    <div class="sk-card sk-wm fi">
+      <div class="lv">FRONTEND</div>
+      <div class="nm">CSS <em>yes</em></div>
+      <div class="bar">█████████████░░░░░░░ 68%</div>
+    </div>
+    <div class="sk-card sk-lt fi">
+      <div class="lv">DATABASE</div>
+      <div class="nm">MySQL</div>
+      <div class="bar">████████████░░░░░░░░ 65%</div>
+    </div>
+    <div class="sk-card sk-wm fi">
+      <div class="lv">TOOLS</div>
+      <div class="nm">Git</div>
+      <div class="bar">██████████████░░░░░░ 72%</div>
+    </div>
+    <div class="sk-card sk-lt fi">
+      <div class="lv">TOOLS</div>
+      <div class="nm">GitHub API</div>
+      <div class="bar">████████████░░░░░░░░ 63%</div>
+    </div>
+    <div class="sk-card sk-wm fi" style="grid-column:span 2;">
+      <div class="lv">CONCEPTS</div>
+      <div class="nm" style="font-size:22px;">DSA · OOP · DBMS · Operating Systems</div>
+      <div class="bar">████████████████░░░░ core focus</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PROJECTS — exact side-by-side card layout from screenshot -->
+<section id="projects">
+<div class="wrap">
+  <div class="eyebrow"><span>03 / PROJECTS</span><em>things I shipped</em></div>
+  <h2 class="proj-hl">Two projects I'm <em>genuinely</em> proud of.</h2>
+  <div class="proj-grid">
+
+    <!-- Monte Carlo -->
+    <div class="proj-card fi">
+      <div class="proj-head">
+        <div class="proj-badges">
+          <span class="pbadge">Quant · Python</span>
+          <span class="pyear">2025</span>
+        </div>
+        <!-- Clean SVG chart visual -->
+        <svg class="proj-visual" viewBox="0 0 340 170" xmlns="http://www.w3.org/2000/svg">
+          <rect width="340" height="170" fill="none"/>
+          <!-- axes -->
+          <line x1="32" y1="10" x2="32" y2="140" stroke="#C8C4B4" stroke-width="1"/>
+          <line x1="32" y1="140" x2="330" y2="140" stroke="#C8C4B4" stroke-width="1"/>
+          <!-- $ label -->
+          <text x="10" y="80" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8A8578">$</text>
+          <!-- Monte Carlo paths — multiple faint lines -->
+          <polyline points="32,100 65,88 98,95 131,72 164,85 197,60 230,75 263,52 296,68 329,45" fill="none" stroke="#C4613A" stroke-width="1.5" opacity=".9"/>
+          <polyline points="32,100 65,105 98,98 131,110 164,95 197,108 230,90 263,102 296,88 329,95" fill="none" stroke="#9A9488" stroke-width="1" opacity=".45"/>
+          <polyline points="32,100 65,92 98,102 131,85 164,96 197,78 230,88 263,70 296,80 329,65" fill="none" stroke="#9A9488" stroke-width="1" opacity=".4"/>
+          <polyline points="32,100 65,110 98,118 131,108 164,120 197,115 230,122 263,118 296,125 329,130" fill="none" stroke="#9A9488" stroke-width="1" opacity=".35"/>
+          <polyline points="32,100 65,95 98,90 131,95 164,80 197,90 230,72 263,85 296,72 329,60" fill="none" stroke="#7A9B82" stroke-width="1" opacity=".5"/>
+          <!-- median label -->
+          <text x="260" y="55" font-family="IBM Plex Mono,monospace" font-size="8" fill="#8A8578">— median</text>
+          <!-- percentile bars at bottom -->
+          <rect x="32" y="145" width="60" height="6" fill="#C8C4B4" rx="1"/>
+          <rect x="132" y="145" width="60" height="6" fill="#9A9488" rx="1"/>
+          <rect x="232" y="145" width="60" height="6" fill="#3A3830" rx="1"/>
+          <text x="32" y="158" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#8A8578">p10</text>
+          <text x="132" y="158" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#8A8578">p50</text>
+          <text x="232" y="158" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#8A8578">p90</text>
+          <!-- labels -->
+          <text x="32" y="168" font-family="IBM Plex Mono,monospace" font-size="7" fill="#9A9488">profit% ≈ 62.4</text>
+          <text x="150" y="168" font-family="IBM Plex Mono,monospace" font-size="7" fill="#9A9488">sharpe ≈ 1.18</text>
+          <text x="265" y="168" font-family="IBM Plex Mono,monospace" font-size="7" fill="#C4613A">GBM · 10k runs</text>
+          <!-- title -->
+          <text x="40" y="22" font-family="IBM Plex Mono,monospace" font-size="8" fill="#5C5850">MONTE CARLO · 10,000 RUNS</text>
+          <text x="40" y="33" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#9A9488">Geometric Brownian Motion · drift μ · vol σ · 252d</text>
+        </svg>
+      </div>
+      <div class="proj-body">
+        <h3 class="proj-title">Monte Carlo Portfolio Simulator</h3>
+        <p class="proj-desc">A Python tool that simulates 10,000+ stock-price futures using Geometric Brownian Motion to help retail investors actually see the shape of their risk.</p>
+        <ul class="proj-bul">
+          <li>Real-time data via Yahoo Finance API — drift &amp; volatility computed live</li>
+          <li>Risk metrics: percentiles, probability of profit, Sharpe ratio</li>
+          <li>Visualizations with Matplotlib for clear decision support</li>
+        </ul>
+        <div class="proj-tags">
+          <span class="ptag">Python</span><span class="ptag">Yahoo Finance</span>
+          <span class="ptag">NumPy</span><span class="ptag">Matplotlib</span><span class="ptag">GBM</span>
+        </div>
+        <a href="https://github.com/JK-BB" target="_blank" class="proj-gh-btn">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- Clinic OS -->
+    <div class="proj-card fi">
+      <div class="proj-head">
+        <div class="proj-badges">
+          <span class="pbadge">Healthcare · Offline-first</span>
+          <span class="pyear">2025</span>
+        </div>
+        <!-- Clean SVG flowchart -->
+        <svg class="proj-visual" viewBox="0 0 340 170" xmlns="http://www.w3.org/2000/svg">
+          <rect width="340" height="170" fill="none"/>
+          <text x="95" y="14" font-family="IBM Plex Mono,monospace" font-size="8" fill="#5C5850">CLINIC OS · 3-TIER AI TRIAGE</text>
+          <!-- Patient boxes -->
+          <rect x="15" y="22" width="68" height="20" rx="3" fill="white" stroke="#C8C4B4" stroke-width="1"/>
+          <text x="49" y="35" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#5C5850" text-anchor="middle">[ patient ]</text>
+          <rect x="136" y="22" width="68" height="20" rx="3" fill="white" stroke="#C8C4B4" stroke-width="1"/>
+          <text x="170" y="35" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#5C5850" text-anchor="middle">[ patient ]</text>
+          <rect x="257" y="22" width="68" height="20" rx="3" fill="white" stroke="#C8C4B4" stroke-width="1"/>
+          <text x="291" y="35" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#5C5850" text-anchor="middle">[ patient ]</text>
+          <!-- Arrows down -->
+          <line x1="49" y1="42" x2="49" y2="54" stroke="#C8C4B4" stroke-width="1"/><polygon points="45,52 49,58 53,52" fill="#C8C4B4"/>
+          <line x1="170" y1="42" x2="170" y2="54" stroke="#C8C4B4" stroke-width="1"/><polygon points="166,52 170,58 174,52" fill="#C8C4B4"/>
+          <line x1="291" y1="42" x2="291" y2="54" stroke="#C8C4B4" stroke-width="1"/><polygon points="287,52 291,58 295,52" fill="#C8C4B4"/>
+          <!-- Tier 1 -->
+          <rect x="8" y="58" width="324" height="22" rx="3" fill="#EDE8DE" stroke="#C8C4B4" stroke-width="1"/>
+          <text x="170" y="70" font-family="IBM Plex Mono,monospace" font-size="8" fill="#5C5850" text-anchor="middle">TIER 1 · intake — symptoms · vitals · history</text>
+          <!-- Arrow -->
+          <line x1="170" y1="80" x2="170" y2="90" stroke="#C8C4B4" stroke-width="1"/><polygon points="166,88 170,94 174,88" fill="#C8C4B4"/>
+          <!-- Tier 2 -->
+          <rect x="8" y="94" width="324" height="22" rx="3" fill="#EDE8DE" stroke="#C4613A" stroke-width="1"/>
+          <text x="170" y="106" font-family="IBM Plex Mono,monospace" font-size="8" fill="#C4613A" text-anchor="middle">TIER 2 · triage AI — ↓ RED  ↓ AMBER  ↓ GREEN</text>
+          <!-- Arrow -->
+          <line x1="170" y1="116" x2="170" y2="126" stroke="#C8C4B4" stroke-width="1"/><polygon points="166,124 170,130 174,124" fill="#C8C4B4"/>
+          <!-- Tier 3 -->
+          <rect x="8" y="130" width="324" height="22" rx="3" fill="#1A1916" stroke="#1A1916"/>
+          <text x="170" y="142" font-family="IBM Plex Mono,monospace" font-size="8" fill="white" text-anchor="middle">TIER 3 · queue + resources · beds · staff · meds</text>
+          <!-- Footer -->
+          <text x="8" y="163" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#7A9B82">· works offline</text>
+          <text x="110" y="163" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#7A9B82">· low-bandwidth</text>
+          <text x="210" y="163" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#9A9488">Johns Hopkins Health Hackathon '25</text>
+        </svg>
+      </div>
+      <div class="proj-body">
+        <h3 class="proj-title">Resource Optimization for Underserved Clinics</h3>
+        <p class="proj-desc">An Offline-First Smart Clinic OS for rural India — a 3-tier AI triage &amp; queue manager that runs when the internet doesn't.</p>
+        <ul class="proj-bul">
+          <li>3-Tier AI Triage: intake → AI urgency scoring → resource allocation</li>
+          <li>Designed for zero cloud dependency — runs on low-resource hardware</li>
+          <li>Built at Johns Hopkins University Health Hackathon 2025</li>
+        </ul>
+        <div class="proj-tags">
+          <span class="ptag">Python</span><span class="ptag">AI/ML</span>
+          <span class="ptag">Offline-First</span><span class="ptag">Healthcare</span><span class="ptag">JHU</span>
+        </div>
+        <a href="https://github.com/JK-BB" target="_blank" class="proj-gh-btn">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub ↗
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- WORK — exact from screenshot -->
+<section id="work">
+<div class="wrap">
+  <div class="eyebrow"><span>04 / WORK</span><em>where I've shown up</em></div>
+  <div class="work-layout">
+    <div class="work-left">
+      <h2>Small teams.<br><em>Real ownership.</em></h2>
+      <p>Early career, but I've already learned how much you can ship when no one is looking over your shoulder. From Singapore to Bhopal — I show up.</p>
+    </div>
+    <div class="work-cards">
+      <div class="wcard fi">
+        <div class="period">OCT — NOV 2024</div>
+        <h3>AI Programme Participant — <em>Nanyang Technological University</em></h3>
+        <div class="org">Singapore · Centre for Professional and Continuing Education</div>
+        <ul class="wbul">
+          <li>Attended an intensive in-person AI/ML programme at NTU Singapore campus.</li>
+          <li>Covered deep learning (CNN, RNN, Transformers), data preprocessing, ANN, and model evaluation.</li>
+          <li>Gained international exposure and collaborated with participants across disciplines.</li>
+        </ul>
+      </div>
+      <div class="wcard fi">
+        <div class="period">FEB 2025 — JUL 2025</div>
+        <h3>Junior Manager — <em>AIESEC in India</em></h3>
+        <div class="org">Human Resources · India Chapter</div>
+        <ul class="wbul">
+          <li>Owned end-to-end recruitment &amp; onboarding — outreach, interview coordination, documentation.</li>
+          <li>Worked across candidates and cross-functional teams to keep communication tight and onboarding smooth.</li>
+          <li>Cut hiring turnaround time by maintaining accurate records and proactive follow-ups.</li>
+        </ul>
+      </div>
+      <div class="wcard fi">
+        <div class="period">2024 — PRESENT</div>
+        <h3>Core Team Member — <em>VITKult Club, VIT Bhopal</em></h3>
+        <div class="org">Event Planning &amp; Operations</div>
+        <ul class="wbul">
+          <li>Planned and executed club events — logistics, on-ground coordination and operations.</li>
+          <li>Helped run team management and event promotion, lifting participant engagement.</li>
+          <li>Streamlined repeat processes so the next event was always 10% smoother.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CERTS & EDUCATION -->
+<section id="certs">
+<div class="wrap">
+  <div class="eyebrow"><span>05 / EDUCATION &amp; CERTS</span><em>credentials &amp; side-quests</em></div>
+  <div class="edu-card fi">
+    <div class="period">SEP 2024 — SEP 2028</div>
+    <h3>Vellore Institute of Technology (VIT), Bhopal</h3>
+    <div class="sub">B.Tech, Computer Science &amp; Engineering — Core</div>
+    <p>Coursework in DSA, OOP, DBMS, Operating Systems, AI/ML fundamentals.</p>
+  </div>
+  <h3 class="certs-hl">Certificates &amp; <em>side-quests</em></h3>
+  <div class="certs-grid">
+    <div class="cert fi">
+      <div class="cert-icon">✦</div>
+      <div class="cert-date">OCT — NOV 2024</div>
+      <div class="cert-title">Introduction to Artificial Intelligence</div>
+      <div class="cert-org">Nanyang Technological University, Singapore<br>Centre for Professional and Continuing Education</div>
+      <p class="cert-desc">Intensive program covering AI, ML, Data Preprocessing, Visualization, ANN and Deep Learning (CNN, RNN, Transformers).</p>
+    </div>
+    <div class="cert fi">
+      <div class="cert-icon">✦</div>
+      <div class="cert-date">2025</div>
+      <div class="cert-title">Health Hackathon Project</div>
+      <div class="cert-org">Johns Hopkins University<br>Offline-First Smart Clinic Operating System</div>
+      <p class="cert-desc">Developed an AI triage &amp; queue management system built to run on low-resource, low-bandwidth setups for rural and underserved clinics.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT — exact from screenshot -->
+<div id="contact">
+  <div class="contact-ey">
+    <span>06 / LET'S TALK</span>
+    <em>find me here ↓</em>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <h2 class="contact-hl">Tell me what you're <em>building.</em></h2>
+      <p class="contact-body">If any of this resonated — internships, side-projects, even just a "have you read this paper?" — my inbox is comically empty and very welcoming.</p>
+      <div class="cbtns">
+        <a href="mailto:shirin.kaleher@outlook.com" class="cbtn">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+          shirin.kaleher@outlook.com
+        </a>
+        <a href="https://github.com/JK-BB" target="_blank" class="cbtn">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          GitHub · JK-BB
+        </a>
+        <a href="https://linkedin.com/in/shirin-kaleher-3a6a10349" target="_blank" class="cbtn">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="#" download class="cbtn">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+          Save as PDF
+        </a>
+      </div>
+    </div>
+    <div>
+      <p class="looking-hl">WHAT I'M LOOKING FOR</p>
+      <ul class="looking">
+        <li><span class="n">01</span><span>Internships in AI / fintech / healthtech</span></li>
+        <li><span class="n">02</span><span>Builders who care about emerging markets</span></li>
+        <li><span class="n">03</span><span>Mentors who'll tell me the truth</span></li>
+        <li><span class="n">04</span><span>Side-projects that ship in weeks not months</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div style="font-family:var(--mono);font-size:10px;color:var(--cream3);margin-bottom:10px;">───────────────────────────────────────────────────────────────────</div>
+  Shirin Kaleher · Bhopal, India · <a href="mailto:shirin.kaleher@outlook.com">shirin.kaleher@outlook.com</a>
+</footer>
+
+<script>
+// Fade in on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
+}, {threshold: 0.1});
+document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+// Smooth nav
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+</script>
+</body>
+</html>
