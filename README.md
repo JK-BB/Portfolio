@@ -1,4 +1,4 @@
-# Portfolio# Shirin Kaleher — Portfolio Website ✨
+Shirin Kaleher — Portfolio Website ✨
 
 A personal developer portfolio website showcasing my skills, projects, experience, education, and journey as a Computer Science undergraduate.
 
